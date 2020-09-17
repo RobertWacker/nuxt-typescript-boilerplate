@@ -1,7 +1,11 @@
 # nuxt-typescript-boilerplate
 nuxt.js with typescript and tsx
 
-## Build Setup
+#### Uses packages:
+* Decorators for Vue components and VUEX store - [nuxt-property-decorator](https://github.com/nuxt-community/nuxt-property-decorator)
+
+
+#### Build Setup
 
 ``` bash
 # install dependencies
