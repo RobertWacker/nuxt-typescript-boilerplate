@@ -1,64 +1,104 @@
-import { Configuration } from '@nuxt/types';
+import { NuxtConfig } from '@nuxt/types';
 
-const config: Configuration = {
+const config: NuxtConfig = {
   /**
-   * Nuxt rendering mode
-   * See https://nuxtjs.org/api/configuration-mode
+   * Define the server connection variables for your application
+   * @see https://ru.nuxtjs.org/guides/configuration-glossary/configuration-server
    */
-  mode: 'universal',
+  server: {
+    port: process.env.PORT,
+    host: process.env.HOST,
+  },
+
   /**
-   * Nuxt target
-   * See https://nuxtjs.org/api/configuration-target
+   * Server-side rendering enabled
+   * @See https://ru.nuxtjs.org/guides/configuration-glossary/configuration-ssr
+   */
+  ssr: true,
+
+  /**
+   * Option to change default nuxt target for your project 'server'/'static'
+   * @see https://ru.nuxtjs.org/guides/configuration-glossary/configuration-target
    */
   target: 'server',
+
   /**
-   * Headers of the page
-   * See https://nuxtjs.org/api/configuration-head
+   * Define all default meta for your application
+   * @see https://ru.nuxtjs.org/guides/configuration-glossary/configuration-head
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Nnuxt-typescript-boilerplate',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1',
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: '{{ description }}',
+      },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href:
+          '//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,400italic|Material+Icons',
+      },
+    ],
   },
+
   /**
-   * Global CSS
+   * Modules are Nuxt.js extensions which can extend it's core functionality and add endless integrations
+   * @see https://ru.nuxtjs.org/guides/configuration-glossary/configuration-modules
    */
-  css: [
-  ],
+  modules: ['@nuxtjs/axios', '@nuxtjs/auth'],
+
   /**
-   * Plugins to load before mounting the App
-   * https://nuxtjs.org/guide/plugins
+   * Different options using the axios property
+   * @see https://axios.nuxtjs.org/options/
    */
-  plugins: [
-  ],
+  axios: {
+    // Used as fallback if no runtime config is provided
+    baseURL: process.env.API_URL,
+  },
+
+  /**
+   * All the paths defined in the plugins property will be imported before initializing the main application.
+   * @see https://nuxtjs.org/api/configuration-plugins
+   */
+  plugins: ['@/plugins/axios-accessor'],
+
   /**
    * Auto import components
-   * See https://nuxtjs.org/api/configuration-components
+   * @See https://nuxtjs.org/api/configuration-components
    */
   components: true,
+
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify'],
+
   /**
-   * Nuxt.js dev-modules
+   * Customize the progress bar color
+   * @see https://ru.nuxtjs.org/guides/configuration-glossary/configuration-loading
    */
-  buildModules: [
-    '@nuxt/typescript-build',
-  ],
+  loading: { color: '#448aff' },
+
   /**
-   * Nuxt.js modules
+   * This option lets you define the CSS files, modules, and libraries you want to include globally (on every page).
+   * @see https://nuxtjs.org/api/configuration-css
    */
-  modules: [
-  ],
+  //@ts-ignore
+  css: [{ src: '~/assets/main.sass', lang: 'sass' }],
+
   /**
    * Build configuration
-   * See https://nuxtjs.org/api/configuration-build/
+   * @see https://nuxtjs.org/api/configuration-build
    */
   build: {
-  }
-}
+  },
+};
+
 
 export default config;
