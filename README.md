@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 # nuxt-typescript-boilerplate
 Nuxt.js with typescript [example]()
+=======
+# Nuxt-typescript-boilerplate
+nuxt.js with typescript
+>>>>>>> 1dc838229aab07c892e819b47ef2ce77e34565d3
 
 #### Type overview
 * Vuex typed moduled store
