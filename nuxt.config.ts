@@ -11,6 +11,12 @@ const config: NuxtConfig = {
   },
 
   /**
+   * The source directory of your Nuxt.js application
+   * @see https://nuxtjs.org/api/configuration-srcdir
+   */
+  srcDir: 'src/',
+
+  /**
    * Server-side rendering enabled
    * @See https://ru.nuxtjs.org/guides/configuration-glossary/configuration-ssr
    */
@@ -54,7 +60,7 @@ const config: NuxtConfig = {
    * Modules are Nuxt.js extensions which can extend it's core functionality and add endless integrations
    * @see https://ru.nuxtjs.org/guides/configuration-glossary/configuration-modules
    */
-  modules: ['@nuxtjs/axios', '@nuxtjs/auth'],
+  modules: ['@nuxtjs/axios'],
 
   /**
    * Different options using the axios property
@@ -77,7 +83,7 @@ const config: NuxtConfig = {
    */
   components: true,
 
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify'],
+  buildModules: ['@nuxt/typescript-build',],
 
   /**
    * Customize the progress bar color
@@ -89,14 +95,20 @@ const config: NuxtConfig = {
    * This option lets you define the CSS files, modules, and libraries you want to include globally (on every page).
    * @see https://nuxtjs.org/api/configuration-css
    */
-  //@ts-ignore
-  css: [{ src: '~/assets/main.sass', lang: 'sass' }],
+  css: ['~/assets/main.sass'],
 
   /**
    * Build configuration
    * @see https://nuxtjs.org/api/configuration-build
    */
   build: {
+    // Nuxt.js use webpack-bundle-analyzer to let you visualize your bundles and how to optimize them.
+    analyze: true,
+    // Enables CSS Source Map support. Only for dev env
+    // ! add env
+    cssSourceMap: true,
+    // ! add env
+    devtools: true,
   },
 };
 
