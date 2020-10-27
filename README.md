@@ -1,5 +1,5 @@
-# nuxt-typescript-boilerplate
-nuxt.js with typescript and tsx
+# Nuxt-typescript-boilerplate
+nuxt.js with typescript
 
 #### Uses packages:
 * Decorators for Vue components and VUEX store - [nuxt-property-decorator](https://github.com/nuxt-community/nuxt-property-decorator)
