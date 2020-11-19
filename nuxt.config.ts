@@ -95,7 +95,7 @@ const config: NuxtConfig = {
    * This option lets you define the CSS files, modules, and libraries you want to include globally (on every page).
    * @see https://nuxtjs.org/api/configuration-css
    */
-  css: ['~/assets/main.sass'],
+  css: ['@/assets/main.sass'],
 
   /**
    * Build configuration

@@ -1,11 +1,8 @@
-export default {
+module.exports = {
     root: true,
     env: {
         browser: true,
         node: true,
-    },
-    parserOptions: {
-        parser: "babel-eslint",
     },
     extends: [
         "plugin:vue/recommended",
@@ -21,5 +18,11 @@ export default {
         "no-console": "off",
         "vue/max-attributes-per-line": "off",
         "prettier/prettier": ["error", { semi: false }],
+    },
+    parserOptions: {
+        parser: "babel-eslint",
+        ecmaFeatures: {
+            legacyDecorators: true,
+        },
     },
 }
